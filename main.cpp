@@ -17,7 +17,7 @@ int main(int argc, char **argv){
     numZeroes = createFactVec(factorial_values, factorial);
 
     //Gets every number in the list and multiplies the result.
-    for(std::vector<int>::const_iterator it = factorial_values.begin(); it != factorial_values.end(); it+=4)
+    for(std::vector<int>::const_iterator it = factorial_values.begin(); it != factorial_values.end(); ++it)
     {
       multiplication(result, *it); 
       std::cout << "Current factorial: " << *it << std::endl;
