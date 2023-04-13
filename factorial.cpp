@@ -28,22 +28,19 @@ int countZeroes(int n)
 //Multiplies a vector's numbers with a given value.
 void multiplication(std::vector<int>& resultVec, int multiplier)
 {
-    std::vector<int> temp;
     int product;
     int carry = 0;
 
-    for(int digit : resultVec)
+    for(int i = 0; i < resultVec.size(); ++i)
     {
-        product = digit * multiplier + carry;
+        product = resultVec[i] * multiplier + carry;
         carry = product / 10;
-        temp.push_back(product % 10);
+        resultVec[i] = product & 0x0000000F;
     }
 
     while(carry > 0)
     {
-        temp.push_back(carry % 10);
-        carry /= 10;
+        resultVec.push_back(carry & 0x0000000F);
+        carry >>= 4;
     }
-
-    resultVec.swap(temp);
 }
