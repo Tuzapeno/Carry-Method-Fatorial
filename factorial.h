@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int createFactVec(std::vector<int>& list, int max);
+int createOptFactVec(std::vector<int>& list, int max);
 
 int countZeroes(int n);
 

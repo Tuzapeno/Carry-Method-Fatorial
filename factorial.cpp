@@ -2,7 +2,7 @@
 
 //Generate a vector with all factorial numbers.
 //and optimize it by removing zeroes to right.
-int createFactVec(std::vector<int>& vec, int max)
+int createOptFactVec(std::vector<int>& vec, int max)
 {
     int zeroCount = 0;
     for(int i = 2; i <= max; ++i)
@@ -25,7 +25,6 @@ int countZeroes(int n)
   return count;
 }
 
-//Multiplies a vector's numbers with a given value.
 void multiplication(std::vector<int>& resultVec, int multiplier)
 {
     int product;
@@ -35,12 +34,13 @@ void multiplication(std::vector<int>& resultVec, int multiplier)
     {
         product = resultVec[i] * multiplier + carry;
         carry = product / 10;
-        resultVec[i] = product & 0x0000000F;
+        resultVec[i] = product % 10;
     }
 
     while(carry > 0)
     {
-        resultVec.push_back(carry & 0x0000000F);
-        carry >>= 4;
+        resultVec.push_back(carry % 10);
+        carry /= 10;
     }
 }
+

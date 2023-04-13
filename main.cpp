@@ -1,20 +1,17 @@
 #include "factorial.h"
 
 int main(int argc, char **argv){
-    unsigned int numZeroes;
+    int numZeroes;
     std::vector<int> factorial_values;
     std::vector<int> result = {1};
-    int factorial;
 
     if(argc != 2)
     {
       std::cout << "Use: ./exec <factorial>";
       return 0;
     }
-  
-    factorial = atoi(argv[1]);
 
-    numZeroes = createFactVec(factorial_values, factorial);
+    numZeroes = createOptFactVec(factorial_values, atoi(argv[1]));
 
     //Gets every number in the list and multiplies the result.
     for(std::vector<int>::const_iterator it = factorial_values.begin(); it != factorial_values.end(); ++it)
