@@ -25,12 +25,14 @@ int countZeroes(int n)
   return count;
 }
 
-void multiplication(std::vector<int>& resultVec, int multiplier)
+void multiplication(std::vector<int>& resultVec, const int multiplier)
 {
     int product;
     int carry = 0;
+    size_t vecSize = resultVec.size();
+    resultVec.reserve(vecSize + 1000); // Reservar espaço adicional para evitar realocações
 
-    for(int i = 0; i < resultVec.size(); ++i)
+    for(size_t i = 0; i < vecSize; ++i)
     {
         product = resultVec[i] * multiplier + carry;
         carry = product / 10;
@@ -43,4 +45,3 @@ void multiplication(std::vector<int>& resultVec, int multiplier)
         carry /= 10;
     }
 }
-
